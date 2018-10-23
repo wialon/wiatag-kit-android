@@ -42,9 +42,5 @@ Gurtam, development@gurtam.com
 
 WiaTagKit is available under the CC BY-ND 4.0 license. See the LICENSE file for more info.
 
-### Todos
-
- - Write detailed Example
- - Add project to Maven
 
 
