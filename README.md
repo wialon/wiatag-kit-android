@@ -11,7 +11,7 @@ WiaTagKit is a library that will help developers to build communication with Wia
 ## Example
 First you need to initialize MessageSender with Host, Port, DeviceID and Password.
 
-If you are no using Local, then use 193.193.165.165 for host and 20963 for port. Else use your Local settings.
+If you are not using Local, then use 193.193.165.165 for host and 20963 for port. Else use your Local settings.
 ```
 MessageSender.initWithHost("193.193.165.165",20963,"123456","unitpassword");
 ```
