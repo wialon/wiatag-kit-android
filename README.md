@@ -52,4 +52,7 @@ Gurtam, development@gurtam.com
 ## License
 
 WiaTagKit is available under the CC BY-ND 4.0 license. See the LICENSE file for more info.
+
+
 [maven]: <https://search.maven.org/search?q=g:com.gurtam%20AND%20a:wiatag-kit>
+
