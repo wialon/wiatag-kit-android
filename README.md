@@ -11,13 +11,13 @@ Declare the following permission in your Android Manifest file:
 
 Get latest jar:
 - Download from [Maven Central][maven]  
-- grab via Gradle: ``` implementation 'com.gurtam:wiatag-kit:0.1.3' ```
+- grab via Gradle: ``` implementation 'com.gurtam:wiatag-kit:0.1.4' ```
 - or Maven:
 ```
 <dependency>
   <groupId>com.gurtam</groupId>
   <artifactId>wiatag-kit</artifactId>
-  <version>0.1.3</version>
+  <version>0.1.4</version>
 </dependency>
 ```
 ## Example
@@ -28,7 +28,7 @@ MessageSender.initWithHost("193.193.165.165",20963,"123456","unitpassword");
 ```
 After initialization is done you may prepare message you want to send:
 ```
-Message message = new Message().time((int)((new Date()).getTime()/1000)).Sos();
+Message message = new Message().time(new Date().getTime()).Sos();
 ```
 and send it:
 ```
