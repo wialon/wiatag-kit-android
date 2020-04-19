@@ -9,22 +9,22 @@ Declare the following permission in your Android Manifest file:
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-Get latest jar:
+Get latest aar:
 - Download from [Maven Central][maven]  
-- grab via Gradle: ``` implementation 'com.gurtam:wiatag-kit:0.1.4' ```
+- grab via Gradle: ``` implementation 'com.gurtam:wiatag-kit:1.0.3' ```
 - or Maven:
 ```
 <dependency>
   <groupId>com.gurtam</groupId>
   <artifactId>wiatag-kit</artifactId>
-  <version>0.1.4</version>
+  <version>1.0.3</version>
 </dependency>
 ```
 ## Example
-First you need to initialize MessageSender with Host, Port, DeviceID and Password.
-If you are no using Local, then use 193.193.165.165 for host and 20963 for port. Else use your Local settings.
+First you need to initialize MessageManager with Context, Host, Port, DeviceID and Password.
+If you are not using Local, then use 193.193.165.165 for host and 20963 for port. Else use your Local settings.
 ```
-MessageSender.initWithHost("193.193.165.165",20963,"123456","unitpassword");
+MessageManager.initWithHost(context,"193.193.165.165",20963,"123456","unitpassword");
 ```
 After initialization is done you may prepare message you want to send:
 ```
@@ -32,7 +32,7 @@ Message message = new Message().time(new Date().getTime()).Sos();
 ```
 and send it:
 ```
-MessageSender.sendMessage(message, new MessageSenderListener() {
+MessageManager.sendMessage(message, new MessageSenderListener() {
         @Override
         protected void onSuccess() {
             super.onSuccess();
@@ -55,4 +55,3 @@ WiaTagKit is available under the CC BY-ND 4.0 license. See the LICENSE file for 
 
 
 [maven]: <https://search.maven.org/search?q=g:com.gurtam%20AND%20a:wiatag-kit>
-
