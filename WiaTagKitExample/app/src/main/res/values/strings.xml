@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">WiaTag-Kit Example</string>
+    <string name="initialize">Initialize</string>
+    <string name="send_messages">Send messages</string>
+    <string name="send">Send</string>
+    <string name="send_location">Send Location</string>
+    <string name="send_sos">Send SOS</string>
+    <string name="send_image">Send Image</string>
+    <string name="text">text</string>
+    <string name="unit_id">Unit Id</string>
+    <string name="password">Password</string>
+    <string name="server_hint">Server</string>
+    <string name="server">193.193.165.165</string>
+    <string name="port_hint">Port</string>
+    <string name="port">20963</string>
+    <string name="send_message">Send message</string>
+    <string name="use_chat">Use Chat</string>
+    <string name="use_commands">Use Commands</string>
+    <string name="use_push">Use push</string>
 </resources>

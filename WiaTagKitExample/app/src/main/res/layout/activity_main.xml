@@ -1,97 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <EditText
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/buttonInitialize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/server_url"
-            android:hint="Server"
-            android:text="193.193.165.165" />
+            android:layout_margin="8dp"
+            android:text="@string/initialize"
+            app:layout_constraintBottom_toBottomOf="@+id/password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/password"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonSendMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:text="@string/send_message"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxLocation" />
+
+        <Button
+            android:id="@+id/buttonSendMessages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:text="@string/send_messages"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/buttonSendMessage"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxLocation" />
+
+        <Button
+            android:id="@+id/buttonSendChatMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:text="@string/send"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextChatMessage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/editTextChatMessage"
+            app:layout_constraintTop_toTopOf="@+id/editTextChatMessage" />
+
+        <CheckBox
+            android:id="@+id/checkBoxLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@string/send_location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+        <CheckBox
+            android:id="@+id/checkBoxSos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/send_sos"
+            app:layout_constraintBottom_toBottomOf="@+id/checkBoxLocation"
+            app:layout_constraintStart_toEndOf="@+id/checkBoxLocation"
+            app:layout_constraintTop_toTopOf="@+id/checkBoxLocation" />
+
+        <CheckBox
+            android:id="@+id/checkBoxImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/send_image"
+            app:layout_constraintBottom_toBottomOf="@+id/checkBoxSos"
+            app:layout_constraintStart_toEndOf="@+id/checkBoxSos"
+            app:layout_constraintTop_toTopOf="@+id/checkBoxLocation" />
 
         <EditText
-            android:id="@+id/port"
-            android:layout_width="wrap_content"
+            android:id="@+id/editTextChatMessage"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Port"
-            android:inputType="number"
-            android:text="20963"/>
-    </LinearLayout>
+            android:layout_margin="8dp"
+            android:hint="@string/text"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonSendChatMessage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewChat" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
         <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/unitId"
-            android:hint="Unit Id"
-            android:text="" />
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/unit_id"
+            android:inputType="textLongMessage"
+            android:minWidth="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/password"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+
         <EditText
+            android:id="@+id/password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:minWidth="50dp"
+            android:text=""
+            app:layout_constraintEnd_toStartOf="@+id/buttonInitialize"
+            app:layout_constraintStart_toEndOf="@+id/unitId"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/password"
-            android:inputType="textPassword"
-            android:hint="Password"
-            android:text="" />
-    </LinearLayout>
-    <Button
-        android:id="@+id/initialize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Initialize" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray"/>
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <CheckBox
-        android:id="@+id/checkBoxSos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Send Sos" />
-    <CheckBox
-        android:id="@+id/checkBoxLocation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Send Location" />
+            <EditText
+                android:id="@+id/server_url"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/server_hint"
+                android:text="@string/server" />
 
-    <CheckBox
-        android:id="@+id/checkBoxImage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Send Image" />
-
-    <Button
-        android:id="@+id/buttonSendMessage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Send message" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray"/>
-
-    <Button
-        android:id="@+id/buttonSendMessages"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Send messages" />
+            <EditText
+                android:id="@+id/port"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/port_hint"
+                android:inputType="number"
+                android:text="@string/port" />
+        </LinearLayout>
 
 
-</LinearLayout>
+        <Switch
+            android:id="@+id/switchUseChat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@string/use_chat"
+            app:layout_constraintEnd_toStartOf="@+id/switchUseRemoteControl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+        <Switch
+            android:id="@+id/switchUseRemoteControl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@string/use_commands"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/switchUseChat"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintTop_toBottomOf="@+id/unitId" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+
+            app:layout_constraintTop_toBottomOf="@+id/buttonSendMessage" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toTopOf="@+id/editTextChatMessage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/switchUseRemoteControl" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewChat"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextChatMessage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/switchUseRemoteControl" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
